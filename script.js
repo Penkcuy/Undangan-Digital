@@ -5,6 +5,11 @@ const nama = params.get("to");
 document.getElementById("namaTamu").innerText =
   nama ? nama : "Tamu Undangan";
 
+// loader
+window.onload = () => {
+  document.getElementById("loader").style.display = "none";
+};
+
 // buka amplop
 function openEnvelope(){
   const env = document.getElementById("envelope");
@@ -15,14 +20,29 @@ function openEnvelope(){
     document.getElementById("main").classList.remove("hidden");
   },1000);
 
-  const musik = document.getElementById("musik");
-  musik.volume = 0.3;
-  musik.play();
+  playSmooth();
 }
 
-// musik
+// musik fade in
+const musik = document.getElementById("musik");
+
+function playSmooth(){
+  musik.volume = 0;
+  musik.play();
+
+  let vol = 0;
+  const fade = setInterval(()=>{
+    if(vol < 0.3){
+      vol += 0.01;
+      musik.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  },100);
+}
+
+// toggle musik
 function toggleMusic(){
-  const musik = document.getElementById("musik");
   const btn = document.querySelector(".music-btn");
 
   if(musik.paused){
@@ -60,7 +80,7 @@ window.addEventListener("scroll", ()=>{
   });
 });
 
-// bunga jatuh halus
+// bunga jatuh
 const container = document.querySelector(".flowers");
 
 setInterval(()=>{
@@ -74,3 +94,11 @@ setInterval(()=>{
 
   setTimeout(()=>flower.remove(),10000);
 },500);
+
+// auto scroll cinematic
+setTimeout(()=>{
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+},4000);
