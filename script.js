@@ -25,3 +25,5 @@ setInterval(() => {
   document.getElementById("countdown").innerText =
     hari + " hari lagi";
 }, 1000);
+
+document.getElementById("musik").volume = 0.3;
