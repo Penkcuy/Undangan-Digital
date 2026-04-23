@@ -10,36 +10,50 @@
 <body>
 
 <!-- COVER -->
-<div class="cover">
-  <h1>Undangan Pernikahan</h1>
-  <h2 id="namaTamu"></h2>
-  <button onclick="bukaUndangan()">Buka Undangan</button>
+<div class="cover" id="cover">
+  <div class="cover-box">
+    <h1>Undangan Pernikahan</h1>
+    <h2 id="namaTamu"></h2>
+    <button onclick="bukaUndangan()">Buka Undangan</button>
+  </div>
 </div>
 
-<!-- KONTEN -->
+<!-- CONTENT -->
 <div id="content" class="hidden">
 
-  <h2>Ahmad & Siti</h2>
+  <section data-aos="fade-up">
+    <h2 class="couple">Ahmad & Siti</h2>
+    <p>Sabtu, 10 Mei 2026</p>
+  </section>
 
-  <p>Sabtu, 10 Mei 2026</p>
+  <section data-aos="fade-up">
+    <h3>Lokasi</h3>
+    <a href="https://maps.google.com" target="_blank">Lihat Google Maps</a>
+  </section>
 
-  <a href="https://maps.google.com" target="_blank">Lihat Lokasi</a>
+  <section data-aos="fade-up">
+    <h3>Galeri</h3>
+    <div class="gallery">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+    </div>
+  </section>
 
-  <!-- GALERI -->
-  <div class="gallery">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-  </div>
-
-  <!-- COUNTDOWN -->
-  <h3 id="countdown"></h3>
+  <section data-aos="fade-up">
+    <h3>Menuju Hari Bahagia</h3>
+    <h2 id="countdown"></h2>
+  </section>
 
 </div>
+
+<!-- MUSIK -->
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <audio id="musik" loop>
   <source src="music.mp3" type="audio/mp3">
 </audio>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
