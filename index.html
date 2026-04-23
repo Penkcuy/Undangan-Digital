@@ -2,111 +2,120 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Ahmad & Siti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ahmad & Siti - Undangan Pernikahan</title>
 
     <meta property="og:title" content="Undangan Pernikahan Ahmad & Siti">
-    <meta property="og:description" content="Sabtu, 10 Mei 2026 - Kami menantikan kehadiran Anda.">
-    <meta property="og:image" content="bg.jpg">
-    <meta property="og:url" content="https://penkcuy.github.io/Undangan-Digital/">
+    <meta property="og:description" content="Sabtu, 10 Mei 2026. Kehadiran Anda adalah kado terindah.">
+    <meta property="og:image" content="bg.jpg"> <meta property="og:url" content="https://penkcuy.github.io/Undangan-Digital/">
+    <meta name="theme-color" content="#d4a373">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="loader">
     <div class="loader-content">
-        <h2 style="font-family: 'Great Vibes'; font-size: 40px;">A & S</h2>
-        <p>Menyiapkan Undangan...</p>
+        <h2 class="script-font load-logo">A & S</h2>
+        <div class="line-loader"></div>
     </div>
 </div>
 
 <div class="flowers"></div>
 
-<div class="envelope" id="envelope" onclick="openEnvelope()">
+<audio id="musik" loop preload="auto">
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+<button class="music-btn hidden-btn" onclick="toggleMusic()">🔇</button>
+
+<div class="envelope" id="envelope">
+    <div class="parallax-bg" style="background-image: url('bg.jpg');"></div>
+    <div class="overlay"></div>
     <div class="envelope-text">
-        <p style="letter-spacing: 3px; font-size: 12px; text-transform: uppercase;">Undangan Pernikahan</p>
-        <h1>Ahmad & Siti</h1>
-        <p>Kepada Yth.</p>
-        <h2 id="namaTamu" style="margin-bottom: 20px;"></h2>
-        <button class="btn-open">Buka Undangan</button>
+        <p class="uppercase letter-spacing-2">The Wedding Of</p>
+        <h1 class="script-font">Ahmad & Siti</h1>
+        <div class="divider"></div>
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h2 id="namaTamu" class="guest-name">Tamu Undangan</h2>
+        <button class="btn-open" onclick="openEnvelope()">Buka Undangan</button>
     </div>
 </div>
 
-<audio id="musik" loop>
-    <source src="music.mp3" type="audio/mp3">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🔇</button>
-
-<div id="main" class="hidden">
+<div id="main" class="hidden no-scroll">
 
     <section class="hero">
-        <div class="overlay"></div>
-        <div class="hero-text">
-            <p>The Wedding of</p>
-            <h1>Ahmad & Siti</h1>
-            <p class="date-hero">10 . 05 . 2026</p>
+        <div class="hero-bg" style="background-image: url('bg.jpg');"></div>
+        <div class="overlay darker"></div>
+        <div class="hero-text show-fade">
+            <p class="uppercase letter-spacing-3">Kami Mengundang Anda</p>
+            <h1 class="script-font big-title">Ahmad & Siti</h1>
+            <div class="hero-line"></div>
+            <p class="date-hero letter-spacing-2">10 . 05 . 2026</p>
+            <div class="scroll-down-hint"><span></span>Scroll</div>
         </div>
     </section>
 
-    <section class="story">
-        <div class="glass-card">
-            <h2>Our Journey</h2>
-            <p>Tidak ada yang kebetulan di dunia ini. Kami dipertemukan oleh takdir, dipersatukan oleh cinta, dan kini melangkah menuju ibadah terindah.</p>
+    <section class="story show-on-scroll card-section">
+        <div class="premium-card">
+            <h2 class="script-font">The Story</h2>
+            <p class="quote">“Menyempurnakan agama dengan ikatan suci...”</p>
+            <p>Dari teman kuliah, kini menjadi teman hidup. Kami dipertemukan oleh takdir dan dipersatukan oleh cinta.</p>
         </div>
     </section>
 
-    <section class="event">
-        <h2>Save The Date</h2>
-        <div class="event-box">
-            <h3>Akad & Resepsi</h3>
-            <p>Sabtu, 10 Mei 2026</p>
-            <p>Pukul 09.00 WIB - Selesai</p>
-            <p>Gedung Serbaguna, Jakarta</p>
+    <section class="event show-on-scroll">
+        <div class="premium-card highlight">
+            <h2 class="script-font">Save The Date</h2>
+            <div class="event-grid">
+                <div class="event-item">
+                    <h3 class="gold-text">Akad Nikah</h3>
+                    <p>08.00 - 10.00 WIB</p>
+                </div>
+                <div class="event-item">
+                    <h3 class="gold-text">Resepsi</h3>
+                    <p>11.00 - Selesai</p>
+                </div>
+            </div>
+            <p class="address"><strong>Gedung Pernikahan Jakarta</strong><br>Jl. Melati No. 123, Jakarta Selatan</p>
             <a href="https://maps.google.com" target="_blank" class="btn-link">📍 Lihat Lokasi</a>
         </div>
     </section>
 
-    <section class="countdown-section">
-        <h2 id="countdown">00 hari 00 jam lagi</h2>
-    </section>
-
-    <section class="gallery">
-        <h2>Digital Gallery</h2>
+    <section class="gallery show-on-scroll">
+        <h2 class="script-font">Happy Moments</h2>
         <div class="slider">
-            <img src="foto1.jpg" alt="Gallery 1">
-            <img src="foto2.jpg" alt="Gallery 2">
-            <img src="foto3.jpg" alt="Gallery 3">
+            <img src="foto1.jpg" alt="Momen 1">
+            <img src="foto2.jpg" alt="Momen 2">
+            <img src="foto1.jpg" alt="Momen 3">
         </div>
     </section>
 
-    <section class="rsvp">
-        <h2>Konfirmasi Kehadiran</h2>
-        <div class="glass-card">
-            <p>Kehadiran Anda adalah kado terindah bagi kami.</p>
+    <section class="rsvp show-on-scroll">
+        <div class="premium-card glass">
+            <h2 class="script-font"> RSVP</h2>
+            <p>Kehadiran Anda adalah kehormatan bagi kami.</p>
             <a href="https://forms.gle/ISI_LINK_KAMU" target="_blank" class="btn-link">Isi Buku Tamu</a>
-            <br>
-            <a href="https://wa.me/628xxxx?text=Halo%20Ahmad%20&%20Siti,%20Saya%20akan%20hadir" class="btn-link secondary">Konfirmasi via WhatsApp</a>
+            <p class="small-text">Atau konfirmasi via WhatsApp:</p>
+            <a href="https://wa.me/628xxxx" class="btn-link-wa">WhatsApp Kami</a>
         </div>
     </section>
 
-    <section class="gift">
-        <h2>Wedding Gift</h2>
-        <div class="glass-card">
-            <p>Terima kasih atas doa dan restu Anda.</p>
-            <div class="bank-info">
-                <p><strong>Bank BCA</strong><br>1234567890<br>a.n Ahmad</p>
-                <button onclick="copyText('1234567890')" class="btn-small">Salin No. Rekening</button>
+    <section class="gift show-on-scroll">
+        <div class="premium-card highlight">
+            <h2 class="script-font">Digital Gift</h2>
+            <p>Bagi yang ingin memberikan tanda kasih:</p>
+            <div class="bank-box">
+                <p><strong>BCA</strong><br>1234567890<br>A.N Ahmad</p>
+                <button onclick="copyText('1234567890')" class="btn-small">Salin Rekening</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Terima Kasih</p>
-        <hr style="width: 50px; border: 0.5px solid #d4a373; margin: 20px auto;">
-        <p>Made with Love by <strong>Gilang Digital Invitation</strong></p>
-        <p>WA: 0815-xxxx-xxxx</p>
+        <h2 class="script-font gold-text">A & S</h2>
+        <p>Gilang Digital Invitation</p>
+        <p class="credit">Powered by GitHub Pages</p>
     </footer>
 
 </div>
