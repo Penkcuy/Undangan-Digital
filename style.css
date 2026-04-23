@@ -26,3 +26,17 @@ button {
   border: none;
   color: white;
 }
+
+.cover {
+  background: linear-gradient(to bottom, #f8ede3, #d4a373);
+  color: white;
+}
+
+button {
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
