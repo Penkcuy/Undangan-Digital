@@ -1,6 +1,6 @@
 AOS.init();
 
-// Nama tamu
+// Nama tamu dari URL
 const params = new URLSearchParams(window.location.search);
 const nama = params.get("to");
 
@@ -15,20 +15,25 @@ function bukaUndangan() {
   const musik = document.getElementById("musik");
   musik.volume = 0.3;
   musik.play();
+
+  document.querySelector(".music-btn").innerText = "🔊";
 }
 
 // toggle musik
 function toggleMusic() {
   const musik = document.getElementById("musik");
+  const btn = document.querySelector(".music-btn");
 
   if (musik.paused) {
     musik.play();
+    btn.innerText = "🔊";
   } else {
     musik.pause();
+    btn.innerText = "🔇";
   }
 }
 
-// countdown detail
+// countdown
 const target = new Date("May 10, 2026 10:00:00").getTime();
 
 setInterval(() => {
