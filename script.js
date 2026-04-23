@@ -1,16 +1,21 @@
 AOS.init();
 
-// Nama tamu dari URL
 const params = new URLSearchParams(window.location.search);
 const nama = params.get("to");
 
 document.getElementById("namaTamu").innerText =
   nama ? "Kepada: " + nama : "Tamu Undangan";
 
-// buka undangan
 function bukaUndangan() {
-  document.getElementById("cover").style.display = "none";
-  document.getElementById("content").classList.remove("hidden");
+  const cover = document.getElementById("cover");
+
+  cover.style.transition = "1s";
+  cover.style.opacity = "0";
+
+  setTimeout(() => {
+    cover.style.display = "none";
+    document.getElementById("content").classList.remove("hidden");
+  }, 1000);
 
   const musik = document.getElementById("musik");
   musik.volume = 0.3;
@@ -19,7 +24,6 @@ function bukaUndangan() {
   document.querySelector(".music-btn").innerText = "🔊";
 }
 
-// toggle musik
 function toggleMusic() {
   const musik = document.getElementById("musik");
   const btn = document.querySelector(".music-btn");
@@ -33,7 +37,6 @@ function toggleMusic() {
   }
 }
 
-// countdown
 const target = new Date("May 10, 2026 10:00:00").getTime();
 
 setInterval(() => {
