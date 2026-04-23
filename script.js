@@ -7,16 +7,23 @@ const nama = params.get("to");
 document.getElementById("namaTamu").innerText =
   nama ? "Kepada: " + nama : "";
 
-// buka undangan
+// start
 function start(){
-  document.getElementById("opening").style.display="none";
+  const opening = document.getElementById("opening");
+
+  opening.style.opacity = "0";
+  opening.style.transition = "1s";
+
+  setTimeout(()=>{
+    opening.style.display="none";
+  },1000);
 
   const musik = document.getElementById("musik");
   musik.volume = 0.3;
   musik.play();
 }
 
-// toggle musik
+// musik toggle
 function toggleMusic(){
   const musik = document.getElementById("musik");
   const btn = document.querySelector(".music-btn");
@@ -38,6 +45,8 @@ setInterval(()=>{
   const d = target - now;
 
   const hari = Math.floor(d/(1000*60*60*24));
+  const jam = Math.floor((d/(1000*60*60))%24);
 
-  document.getElementById("countdown").innerText = hari + " hari";
+  document.getElementById("countdown").innerText =
+    hari + " hari " + jam + " jam";
 },1000);
