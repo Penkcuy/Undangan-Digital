@@ -2,10 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Undangan</title>
+  <title>Undangan Pernikahan</title>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
 
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -18,8 +18,8 @@
 <!-- COVER -->
 <div class="cover" id="cover">
   <div class="overlay"></div>
-  <div class="cover-box">
-    <h1>Undangan Pernikahan</h1>
+  <div class="cover-content">
+    <h1>Wedding Invitation</h1>
     <h2 id="namaTamu"></h2>
     <button onclick="bukaUndangan()">Buka Undangan</button>
   </div>
@@ -28,16 +28,46 @@
 <!-- CONTENT -->
 <div id="content" class="hidden">
 
+  <!-- COUPLE -->
   <section data-aos="fade-up">
     <h2 class="couple">Ahmad & Siti</h2>
-    <p>Sabtu, 10 Mei 2026</p>
+    <p>Kami mengundang Anda untuk hadir di hari bahagia kami</p>
   </section>
 
+  <!-- STORY -->
   <section data-aos="fade-up">
-    <h3>Lokasi</h3>
-    <a href="https://maps.google.com" target="_blank">Lihat Lokasi</a>
+    <h3>Our Story</h3>
+
+    <div class="story">
+      <h4>💖 Pertemuan</h4>
+      <p>Kami pertama kali bertemu di tahun 2020...</p>
+    </div>
+
+    <div class="story">
+      <h4>💍 Lamaran</h4>
+      <p>Setelah perjalanan panjang, kami memutuskan...</p>
+    </div>
+
+    <div class="story">
+      <h4>🎉 Pernikahan</h4>
+      <p>Kini kami siap memulai babak baru bersama...</p>
+    </div>
   </section>
 
+  <!-- EVENT -->
+  <section data-aos="fade-up">
+    <h3>Acara</h3>
+    <p>Sabtu, 10 Mei 2026</p>
+    <a href="https://maps.google.com" target="_blank">📍 Lihat Lokasi</a>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section data-aos="fade-up">
+    <h3>Menuju Hari Bahagia</h3>
+    <h2 id="countdown"></h2>
+  </section>
+
+  <!-- GALLERY -->
   <section data-aos="fade-up">
     <h3>Galeri</h3>
     <div class="gallery">
@@ -46,14 +76,9 @@
     </div>
   </section>
 
-  <section data-aos="fade-up">
-    <h3>Menuju Hari Bahagia</h3>
-    <h2 id="countdown"></h2>
-  </section>
-
 </div>
 
-<!-- MUSIC BUTTON -->
+<!-- MUSIC -->
 <button class="music-btn" onclick="toggleMusic()">🔇</button>
 
 <audio id="musik" loop>
