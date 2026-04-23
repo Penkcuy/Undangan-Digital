@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Undangan</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- COVER -->
 <div class="cover" id="cover">
+  <div class="overlay"></div>
   <div class="cover-box">
     <h1>Undangan Pernikahan</h1>
     <h2 id="namaTamu"></h2>
@@ -32,7 +35,7 @@
 
   <section data-aos="fade-up">
     <h3>Lokasi</h3>
-    <a href="https://maps.google.com" target="_blank">Lihat Google Maps</a>
+    <a href="https://maps.google.com" target="_blank">Lihat Lokasi</a>
   </section>
 
   <section data-aos="fade-up">
@@ -50,8 +53,8 @@
 
 </div>
 
-<!-- MUSIK -->
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<!-- MUSIC BUTTON -->
+<button class="music-btn" onclick="toggleMusic()">🔇</button>
 
 <audio id="musik" loop>
   <source src="music.mp3" type="audio/mp3">
@@ -59,5 +62,6 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
