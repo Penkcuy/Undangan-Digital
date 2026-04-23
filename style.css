@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #fdf6f0;
+}
+
+.cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.gallery img {
+  width: 150px;
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #d4a373;
+  border: none;
+  color: white;
+}

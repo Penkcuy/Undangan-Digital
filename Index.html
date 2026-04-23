@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Undangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <h1>Undangan Pernikahan</h1>
+  <h2 id="namaTamu"></h2>
+  <button onclick="bukaUndangan()">Buka Undangan</button>
+</div>
+
+<!-- KONTEN -->
+<div id="content" class="hidden">
+
+  <h2>Ahmad & Siti</h2>
+
+  <p>Sabtu, 10 Mei 2026</p>
+
+  <a href="https://maps.google.com" target="_blank">Lihat Lokasi</a>
+
+  <!-- GALERI -->
+  <div class="gallery">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+  </div>
+
+  <!-- COUNTDOWN -->
+  <h3 id="countdown"></h3>
+
+</div>
+
+<audio id="musik" loop>
+  <source src="musik.mp3" type="audio/mp3">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
