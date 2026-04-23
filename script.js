@@ -1,15 +1,16 @@
-// 1. Data
-const params = new URLSearchParams(window.location.search);
-document.getElementById("namaTamu").innerText = params.get("to") || "Tamu Undangan";
+// 1. Inisialisasi Nama Tamu
+const urlParams = new URLSearchParams(window.location.search);
+const tamu = urlParams.get('to') || "Tamu Undangan";
+document.getElementById("namaTamu").innerText = tamu;
 
-// 2. Loader
+// 2. Kontrol Loader
 window.onload = () => {
     const loader = document.getElementById("loader");
     loader.style.opacity = "0";
-    setTimeout(() => { loader.style.display = "none"; }, 500);
+    setTimeout(() => { loader.style.display = "none"; }, 800);
 };
 
-// 3. Open Envelope
+// 3. Logika Buka Undangan
 const musik = document.getElementById("musik");
 function openEnvelope() {
     document.getElementById("envelope").classList.add("open");
@@ -17,6 +18,7 @@ function openEnvelope() {
     document.body.classList.remove("no-scroll");
     document.querySelector(".music-btn").classList.remove("hidden");
     
+    // Volume fade in
     musik.volume = 0;
     musik.play();
     let vol = 0;
@@ -26,7 +28,7 @@ function openEnvelope() {
     }, 200);
 }
 
-// 4. Parallax & Reveal
+// 4. Efek Scroll & Parallax
 window.addEventListener("scroll", () => {
     let scrolled = window.pageYOffset;
     const heroBg = document.querySelector(".hero-bg");
@@ -36,32 +38,32 @@ window.addEventListener("scroll", () => {
 
     document.querySelectorAll(".show-on-scroll").forEach(sec => {
         const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) { sec.classList.add("show"); }
+        if (top < window.innerHeight - 150) { sec.classList.add("show"); }
     });
 });
 
-// 5. Flower Logic (FIXED)
+// 5. Partikel Bunga Jatuh
 function createFlower() {
     const container = document.querySelector(".flowers");
     if(!container) return;
     const flower = document.createElement("div");
     flower.classList.add("flower");
     flower.style.left = Math.random() * 100 + "vw";
-    flower.style.width = (Math.random() * 10 + 10) + "px";
+    flower.style.width = (Math.random() * 8 + 10) + "px";
     flower.style.height = flower.style.width;
-    flower.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    flower.style.animationDuration = (Math.random() * 3 + 5) + "s";
     container.appendChild(flower);
-    setTimeout(() => flower.remove(), 7000);
+    setTimeout(() => flower.remove(), 8000);
 }
-setInterval(createFlower, 450);
+setInterval(createFlower, 500);
 
-// 6. Guest Book Logic
+// 6. Buku Tamu (Guest Book)
 const wishForm = document.getElementById('wishForm');
 const wishContainer = document.getElementById('wishContainer');
 
 document.addEventListener('DOMContentLoaded', () => {
-    const saved = JSON.parse(localStorage.getItem('weddingWishes')) || [];
-    saved.forEach(w => renderWish(w.name, w.message));
+    const savedWishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+    savedWishes.forEach(w => renderWish(w.name, w.message));
 });
 
 wishForm.addEventListener('submit', (e) => {
@@ -84,6 +86,7 @@ function renderWish(n, m) {
     wishContainer.prepend(div);
 }
 
+// 7. Utilitas
 function toggleMusic() {
     const btn = document.querySelector(".music-btn");
     if (musik.paused) { musik.play(); btn.innerText = "🔊"; } 
@@ -91,5 +94,5 @@ function toggleMusic() {
 }
 
 function copyText(t) {
-    navigator.clipboard.writeText(t).then(() => alert("Berhasil disalin!"));
+    navigator.clipboard.writeText(t).then(() => alert("Nomor rekening berhasil disalin!"));
 }
