@@ -1,3 +1,10 @@
+// nama tamu
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("to");
+
+document.getElementById("namaTamu").innerText =
+  nama ? nama : "Tamu Undangan";
+
 // buka amplop
 function openEnvelope(){
   const env = document.getElementById("envelope");
@@ -35,7 +42,10 @@ setInterval(()=>{
   const d = target - now;
 
   const hari = Math.floor(d/(1000*60*60*24));
-  document.getElementById("countdown").innerText = hari + " hari lagi";
+  const jam = Math.floor((d/(1000*60*60))%24);
+
+  document.getElementById("countdown").innerText =
+    hari + " hari " + jam + " jam lagi";
 },1000);
 
 // scroll animasi
@@ -50,7 +60,7 @@ window.addEventListener("scroll", ()=>{
   });
 });
 
-// bunga jatuh
+// bunga jatuh halus
 const container = document.querySelector(".flowers");
 
 setInterval(()=>{
@@ -58,9 +68,9 @@ setInterval(()=>{
   flower.classList.add("flower");
 
   flower.style.left = Math.random()*100 + "vw";
-  flower.style.animationDuration = (3 + Math.random()*5) + "s";
+  flower.style.animationDuration = (5 + Math.random()*5) + "s";
 
   container.appendChild(flower);
 
-  setTimeout(()=>flower.remove(),8000);
-},300);
+  setTimeout(()=>flower.remove(),10000);
+},500);
