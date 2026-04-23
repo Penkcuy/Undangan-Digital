@@ -5,20 +5,17 @@
 <title>Undangan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- OPENING -->
-<div class="opening" id="opening">
-  <div class="opening-box">
-    <h1>Ahmad & Siti</h1>
-    <p id="namaTamu"></p>
-    <button onclick="start()">Buka Undangan</button>
-  </div>
+<!-- BUNGA -->
+<div class="flowers"></div>
+
+<!-- AMplop -->
+<div class="envelope" id="envelope" onclick="openEnvelope()">
+  <div class="envelope-text">Buka Undangan</div>
 </div>
 
 <!-- MUSIC -->
@@ -29,71 +26,42 @@
 <button class="music-btn" onclick="toggleMusic()">🔇</button>
 
 <!-- MAIN -->
-<div id="main">
+<div id="main" class="hidden">
 
-<!-- HERO -->
 <section class="hero">
   <div class="overlay"></div>
   <div class="hero-text">
-    <h1 data-aos="fade-up">Ahmad & Siti</h1>
-    <p data-aos="fade-up" data-aos-delay="300">10 Mei 2026</p>
+    <h1>Ahmad & Siti</h1>
+    <p>10 Mei 2026</p>
   </div>
 </section>
 
-<!-- STORY -->
 <section>
-  <h2 data-aos="fade-up">Our Story</h2>
-
-  <p data-aos="fade-up" data-aos-delay="200">
-    Kami dipertemukan tanpa sengaja, dalam sebuah momen sederhana...
-  </p>
-
-  <p data-aos="fade-up" data-aos-delay="400">
-    Seiring waktu, kebersamaan itu tumbuh menjadi cinta...
-  </p>
-
-  <p data-aos="fade-up" data-aos-delay="600">
-    Hingga akhirnya kami memutuskan untuk melangkah bersama...
-  </p>
+  <h2>Our Journey</h2>
+  <p>Kami dipertemukan oleh takdir...</p>
+  <p>Cinta tumbuh perlahan...</p>
+  <p>Hingga akhirnya kami bersatu...</p>
 </section>
 
-<!-- EVENT -->
 <section>
-  <h2 data-aos="fade-up">Acara</h2>
-  <p data-aos="fade-up" data-aos-delay="200">Sabtu, 10 Mei 2026</p>
-  <a data-aos="fade-up" data-aos-delay="400" href="https://maps.google.com">📍 Lihat Lokasi</a>
+  <h2>Acara</h2>
+  <p>Sabtu, 10 Mei 2026</p>
 </section>
 
-<!-- COUNTDOWN -->
 <section>
-  <h2 data-aos="fade-up">Menuju Hari Bahagia</h2>
-  <h1 id="countdown" data-aos="fade-up" data-aos-delay="200"></h1>
+  <h2 id="countdown"></h2>
 </section>
 
-<!-- GALLERY -->
 <section>
-  <h2 data-aos="fade-up">Galeri</h2>
-
-  <div class="slider" data-aos="fade-up" data-aos-delay="200">
+  <h2>Galeri</h2>
+  <div class="slider">
     <img src="foto1.jpg">
     <img src="foto2.jpg">
-    <img src="foto1.jpg">
   </div>
-</section>
-
-<!-- RSVP -->
-<section>
-  <h2 data-aos="fade-up">Kehadiran</h2>
-  <a data-aos="fade-up" data-aos-delay="200"
-     href="https://wa.me/628xxxx?text=Saya%20akan%20hadir">
-     Konfirmasi via WhatsApp
-  </a>
 </section>
 
 </div>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
