@@ -1,96 +1,115 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Undangan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Ahmad & Siti</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Undangan Pernikahan Ahmad & Siti">
+    <meta property="og:description" content="Sabtu, 10 Mei 2026 - Kami menantikan kehadiran Anda.">
+    <meta property="og:image" content="bg.jpg">
+    <meta property="og:url" content="https://penkcuy.github.io/Undangan-Digital/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- LOADER -->
 <div id="loader">
-  <h2>Loading Invitation...</h2>
+    <div class="loader-content">
+        <h2 style="font-family: 'Great Vibes'; font-size: 40px;">A & S</h2>
+        <p>Menyiapkan Undangan...</p>
+    </div>
 </div>
 
-<!-- FLOWERS -->
 <div class="flowers"></div>
 
-<!-- AMPLOP -->
 <div class="envelope" id="envelope" onclick="openEnvelope()">
-  <div class="envelope-text">
-    <h1>Ahmad & Siti</h1>
-    <p>Kepada Yth.</p>
-    <p id="namaTamu"></p>
-    <button>Buka Undangan</button>
-  </div>
+    <div class="envelope-text">
+        <p style="letter-spacing: 3px; font-size: 12px; text-transform: uppercase;">Undangan Pernikahan</p>
+        <h1>Ahmad & Siti</h1>
+        <p>Kepada Yth.</p>
+        <h2 id="namaTamu" style="margin-bottom: 20px;"></h2>
+        <button class="btn-open">Buka Undangan</button>
+    </div>
 </div>
 
-<!-- MUSIC -->
 <audio id="musik" loop>
-  <source src="music.mp3" type="audio/mp3">
+    <source src="music.mp3" type="audio/mp3">
 </audio>
-
 <button class="music-btn" onclick="toggleMusic()">🔇</button>
 
-<!-- MAIN -->
 <div id="main" class="hidden">
 
-<section class="hero">
-  <div class="overlay"></div>
-  <div class="hero-text">
-    <h1>Ahmad & Siti</h1>
-    <p>10 Mei 2026</p>
-  </div>
-</section>
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <p>The Wedding of</p>
+            <h1>Ahmad & Siti</h1>
+            <p class="date-hero">10 . 05 . 2026</p>
+        </div>
+    </section>
 
-<section>
-  <h2>Our Journey</h2>
-  <p>Tidak ada yang kebetulan di dunia ini...</p>
-  <p>Kami dipertemukan oleh takdir...</p>
-  <p>Hingga akhirnya kami bersatu...</p>
-</section>
+    <section class="story">
+        <div class="glass-card">
+            <h2>Our Journey</h2>
+            <p>Tidak ada yang kebetulan di dunia ini. Kami dipertemukan oleh takdir, dipersatukan oleh cinta, dan kini melangkah menuju ibadah terindah.</p>
+        </div>
+    </section>
 
-<section>
-  <h2>Acara</h2>
-  <p>Sabtu, 10 Mei 2026</p>
-  <a href="https://maps.google.com" target="_blank">📍 Lihat Lokasi</a>
-</section>
+    <section class="event">
+        <h2>Save The Date</h2>
+        <div class="event-box">
+            <h3>Akad & Resepsi</h3>
+            <p>Sabtu, 10 Mei 2026</p>
+            <p>Pukul 09.00 WIB - Selesai</p>
+            <p>Gedung Serbaguna, Jakarta</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-link">📍 Lihat Lokasi</a>
+        </div>
+    </section>
 
-<section>
-  <h2 id="countdown"></h2>
-</section>
+    <section class="countdown-section">
+        <h2 id="countdown">00 hari 00 jam lagi</h2>
+    </section>
 
-<section>
-  <h2>Galeri</h2>
-  <div class="slider">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-  </div>
-</section>
+    <section class="gallery">
+        <h2>Digital Gallery</h2>
+        <div class="slider">
+            <img src="foto1.jpg" alt="Gallery 1">
+            <img src="foto2.jpg" alt="Gallery 2">
+            <img src="foto3.jpg" alt="Gallery 3">
+        </div>
+    </section>
 
-<section>
-  <h2>Kehadiran</h2>
+    <section class="rsvp">
+        <h2>Konfirmasi Kehadiran</h2>
+        <div class="glass-card">
+            <p>Kehadiran Anda adalah kado terindah bagi kami.</p>
+            <a href="https://forms.gle/ISI_LINK_KAMU" target="_blank" class="btn-link">Isi Buku Tamu</a>
+            <br>
+            <a href="https://wa.me/628xxxx?text=Halo%20Ahmad%20&%20Siti,%20Saya%20akan%20hadir" class="btn-link secondary">Konfirmasi via WhatsApp</a>
+        </div>
+    </section>
 
-  <a href="https://forms.gle/ISI_LINK_KAMU" target="_blank">
-    Isi Kehadiran
-  </a>
+    <section class="gift">
+        <h2>Wedding Gift</h2>
+        <div class="glass-card">
+            <p>Terima kasih atas doa dan restu Anda.</p>
+            <div class="bank-info">
+                <p><strong>Bank BCA</strong><br>1234567890<br>a.n Ahmad</p>
+                <button onclick="copyText('1234567890')" class="btn-small">Salin No. Rekening</button>
+            </div>
+        </div>
+    </section>
 
-  <br><br>
-
-  <a href="https://wa.me/628xxxx?text=Saya%20akan%20hadir">
-    Konfirmasi via WhatsApp
-  </a>
-</section>
+    <footer>
+        <p>Terima Kasih</p>
+        <hr style="width: 50px; border: 0.5px solid #d4a373; margin: 20px auto;">
+        <p>Made with Love by <strong>Gilang Digital Invitation</strong></p>
+        <p>WA: 0815-xxxx-xxxx</p>
+    </footer>
 
 </div>
-
-<footer>
-  <p>Powered by Gilang Digital Invitation</p>
-  <p>WA: 0815-xxxx-xxxx</p>
-</footer>
 
 <script src="script.js"></script>
 </body>
