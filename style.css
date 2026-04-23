@@ -5,10 +5,6 @@ body {
   text-align: center;
 }
 
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-}
-
 /* COVER */
 .cover {
   height: 100vh;
@@ -23,12 +19,18 @@ h1, h2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
 }
 
-.cover-box {
+.cover-content {
   position: relative;
   color: white;
+  animation: fadeIn 2s ease;
+}
+
+.cover h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
 }
 
 button {
@@ -56,6 +58,22 @@ section {
   background: white;
   margin: 20px;
   border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* COUPLE */
+.couple {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #b08968;
+}
+
+/* STORY */
+.story {
+  margin: 20px 0;
+  padding: 15px;
+  border-left: 3px solid #d4a373;
+  text-align: left;
 }
 
 /* GALLERY */
@@ -80,6 +98,12 @@ section {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 /* MOBILE */
