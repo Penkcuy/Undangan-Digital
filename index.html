@@ -1,89 +1,74 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Undangan Pernikahan</title>
+<meta charset="UTF-8">
+<title>Undangan</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- COVER -->
-<div class="cover" id="cover">
-  <div class="overlay"></div>
-  <div class="cover-content">
-    <h1>Wedding Invitation</h1>
-    <h2 id="namaTamu"></h2>
-    <button onclick="bukaUndangan()">Buka Undangan</button>
+<!-- OPENING -->
+<div class="opening" id="opening">
+  <div class="opening-box">
+    <h1>Ahmad & Siti</h1>
+    <p id="namaTamu"></p>
+    <button onclick="start()">Buka Undangan</button>
   </div>
 </div>
 
-<!-- CONTENT -->
-<div id="content" class="hidden">
-
-  <!-- COUPLE -->
-  <section data-aos="fade-up">
-    <h2 class="couple">Ahmad & Siti</h2>
-    <p>Kami mengundang Anda untuk hadir di hari bahagia kami</p>
-  </section>
-
-  <!-- STORY -->
-  <section data-aos="fade-up">
-    <h3>Our Story</h3>
-
-    <div class="story">
-      <h4>💖 Pertemuan</h4>
-      <p>Kami pertama kali bertemu di tahun 2020...</p>
-    </div>
-
-    <div class="story">
-      <h4>💍 Lamaran</h4>
-      <p>Setelah perjalanan panjang, kami memutuskan...</p>
-    </div>
-
-    <div class="story">
-      <h4>🎉 Pernikahan</h4>
-      <p>Kini kami siap memulai babak baru bersama...</p>
-    </div>
-  </section>
-
-  <!-- EVENT -->
-  <section data-aos="fade-up">
-    <h3>Acara</h3>
-    <p>Sabtu, 10 Mei 2026</p>
-    <a href="https://maps.google.com" target="_blank">📍 Lihat Lokasi</a>
-  </section>
-
-  <!-- COUNTDOWN -->
-  <section data-aos="fade-up">
-    <h3>Menuju Hari Bahagia</h3>
-    <h2 id="countdown"></h2>
-  </section>
-
-  <!-- GALLERY -->
-  <section data-aos="fade-up">
-    <h3>Galeri</h3>
-    <div class="gallery">
-      <img src="foto1.jpg">
-      <img src="foto2.jpg">
-    </div>
-  </section>
-
-</div>
-
 <!-- MUSIC -->
-<button class="music-btn" onclick="toggleMusic()">🔇</button>
-
 <audio id="musik" loop>
   <source src="music.mp3" type="audio/mp3">
 </audio>
+
+<button class="music-btn" onclick="toggleMusic()">🔇</button>
+
+<!-- MAIN -->
+<div id="main">
+
+<section class="hero">
+  <div class="overlay"></div>
+  <h1 data-aos="fade-up">Ahmad & Siti</h1>
+</section>
+
+<section data-aos="fade-up">
+  <h2>Our Story</h2>
+  <p>Kami bertemu...</p>
+  <p>Kami lamaran...</p>
+  <p>Kini menikah...</p>
+</section>
+
+<section data-aos="fade-up">
+  <h2>Acara</h2>
+  <p>Sabtu, 10 Mei 2026</p>
+  <a href="https://maps.google.com">📍 Lokasi</a>
+</section>
+
+<section data-aos="fade-up">
+  <h2>Countdown</h2>
+  <h1 id="countdown"></h1>
+</section>
+
+<section data-aos="fade-up">
+  <h2>Galeri</h2>
+  <div class="slider">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto1.jpg">
+  </div>
+</section>
+
+<section data-aos="fade-up">
+  <h2>Ucapan & RSVP</h2>
+  <a href="https://wa.me/628xxxx?text=Saya%20akan%20hadir">Kirim Ucapan</a>
+</section>
+
+</div>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
