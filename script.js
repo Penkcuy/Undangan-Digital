@@ -1,21 +1,11 @@
-AOS.init();
-
-// nama tamu
-const params = new URLSearchParams(window.location.search);
-const nama = params.get("to");
-
-document.getElementById("namaTamu").innerText =
-  nama ? "Kepada: " + nama : "";
-
-// start
-function start(){
-  const opening = document.getElementById("opening");
-
-  opening.style.opacity = "0";
-  opening.style.transition = "1s";
+// buka amplop
+function openEnvelope(){
+  const env = document.getElementById("envelope");
+  env.classList.add("open");
 
   setTimeout(()=>{
-    opening.style.display="none";
+    env.style.display="none";
+    document.getElementById("main").classList.remove("hidden");
   },1000);
 
   const musik = document.getElementById("musik");
@@ -23,7 +13,7 @@ function start(){
   musik.play();
 }
 
-// musik toggle
+// musik
 function toggleMusic(){
   const musik = document.getElementById("musik");
   const btn = document.querySelector(".music-btn");
@@ -45,8 +35,32 @@ setInterval(()=>{
   const d = target - now;
 
   const hari = Math.floor(d/(1000*60*60*24));
-  const jam = Math.floor((d/(1000*60*60))%24);
-
-  document.getElementById("countdown").innerText =
-    hari + " hari " + jam + " jam";
+  document.getElementById("countdown").innerText = hari + " hari lagi";
 },1000);
+
+// scroll animasi
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+// bunga jatuh
+const container = document.querySelector(".flowers");
+
+setInterval(()=>{
+  const flower = document.createElement("div");
+  flower.classList.add("flower");
+
+  flower.style.left = Math.random()*100 + "vw";
+  flower.style.animationDuration = (3 + Math.random()*5) + "s";
+
+  container.appendChild(flower);
+
+  setTimeout(()=>flower.remove(),8000);
+},300);
