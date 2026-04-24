@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wedding of Gilang & Intan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Gilang & Intan</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="no-scroll">
 
-<!-- LOADER -->
-<div id="loader">
-  <h1 class="script-font">G & I</h1>
-</div>
+<!-- PARTICLE -->
+<canvas id="flowerCanvas"></canvas>
 
 <!-- BACKGROUND -->
 <div class="bg"></div>
 
 <!-- MUSIC -->
 <audio id="musik" loop>
-  <source src="music.mp3">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 <button class="music-btn hidden" onclick="toggleMusic()">♪</button>
+
+<!-- LOADER -->
+<div id="loader">
+  <h1 class="script-font">G & I</h1>
+</div>
 
 <!-- ENVELOPE -->
 <div class="envelope" id="envelope">
@@ -45,34 +50,49 @@
 
 <section class="hero">
   <p class="label">Maha Suci Allah</p>
-  <h1 class="script-font title big">Gilang & Intan</h1>
+  <h1 class="script-font title big">Gilang <span>&</span> Intan</h1>
   <p class="date">10 · 05 · 2026</p>
 </section>
 
-<section class="content show">
+<section class="content fade">
   <p class="arabic">
     وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
   </p>
   <p class="text">
-    “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan untukmu pasangan hidup…”
+    “Dan di antara tanda‑tanda kekuasaan‑Nya ialah Dia menciptakan pasangan hidup…”
   </p>
   <p class="small">(QS. Ar‑Rum: 21)</p>
 </section>
 
-<section class="content show">
-  <h2 class="script-font section-title">Our Love Story</h2>
-  <p class="text">
-    Allah mempertemukan kami melalui cara yang sederhana,
-    lalu dengan kasih dan rahmat‑Nya menyatukan kami
-    dalam ikatan suci pernikahan.
-  </p>
+<!-- GALLERY -->
+<section class="content fade">
+  <h2 class="script-font section-title">Gallery</h2>
+  <div class="gallery">
+    <img src="gallery/1.jpg">
+    <img src="gallery/2.jpg">
+    <img src="gallery/3.jpg">
+  </div>
 </section>
 
-<section class="content show">
+<!-- EVENT -->
+<section class="content fade">
   <h2 class="script-font section-title">Waktu & Tempat</h2>
   <p class="text"><b>Akad Nikah</b><br>08.00 – 10.00 WIB</p>
   <p class="text"><b>Resepsi</b><br>11.00 WIB – Selesai</p>
   <p class="text"><b>Gedung Grand Ballroom</b><br>Jakarta</p>
+</section>
+
+<!-- RSVP -->
+<section class="content fade">
+  <h2 class="script-font section-title">RSVP</h2>
+  <form id="rsvpForm">
+    <input type="text" id="rsvpName" placeholder="Nama Anda" required>
+    <select id="rsvpStatus">
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+    <button type="submit" class="open-btn">Kirim RSVP</button>
+  </form>
 </section>
 
 <footer>
@@ -84,3 +104,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+``
