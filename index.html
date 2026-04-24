@@ -1,107 +1,131 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Wedding of Gilang & Intan</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Wedding of Gilang & Intan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="no-scroll">
 
-<!-- PARTICLE -->
-<canvas id="flowerCanvas"></canvas>
-
-<!-- BACKGROUND -->
-<div class="bg"></div>
-
-<!-- MUSIC -->
-<audio id="musik" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<button class="music-btn hidden" onclick="toggleMusic()">♪</button>
-
-<!-- LOADER -->
 <div id="loader">
-  <h1 class="script-font">G & I</h1>
+    <div class="loader-content">
+        <h2 class="script-font">G & I</h2>
+        <div class="line-loader"></div>
+    </div>
 </div>
 
-<!-- ENVELOPE -->
+<div class="flowers"></div>
+
+<audio id="musik" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+<button class="music-btn hidden" onclick="toggleMusic()">🔇</button>
+
 <div class="envelope" id="envelope">
-  <div class="envelope-inner">
-    <p class="label">Walimatul ‘Ursy</p>
-    <h1 class="script-font title">Gilang & Intan</h1>
-    <div class="divider"></div>
-    <p class="text">Kepada Yth.</p>
-    <h2 id="namaTamu" class="guest">Tamu Undangan</h2>
-    <button class="open-btn" onclick="openEnvelope()">Buka Undangan</button>
-  </div>
+    <div class="vignette"></div>
+    <div class="envelope-text">
+        <p class="uppercase spacing-3">Walimatul 'Ursy</p>
+        <h1 class="script-font">Gilang & Intan</h1>
+        <div class="divider"></div>
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h2 id="namaTamu" class="guest-name">Tamu Undangan</h2>
+        <button class="btn-open" onclick="openEnvelope()">Buka Undangan</button>
+    </div>
 </div>
 
-<!-- MAIN -->
-<div id="main" class="hidden">
+<div id="main" class="hidden-content">
+    
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="vignette"></div>
+        <div class="hero-text">
+            <p class="uppercase spacing-3">Maha Suci Allah</p>
+            <h1 class="script-font big-title">Gilang & Intan</h1>
+            <div class="hero-line"></div>
+            <p class="spacing-2">10 . 05 . 2026</p>
+        </div>
+    </section>
 
-<section class="hero">
-  <p class="label">Maha Suci Allah</p>
-  <h1 class="script-font title big">Gilang <span>&</span> Intan</h1>
-  <p class="date">10 · 05 · 2026</p>
-</section>
+    <section class="quran show-on-scroll">
+        <div class="premium-card glass">
+            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+            <p class="translation">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."</p>
+            <p class="bold"> (QS. Ar-Rum: 21)</p>
+        </div>
+    </section>
 
-<section class="content fade">
-  <p class="arabic">
-    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
-  </p>
-  <p class="text">
-    “Dan di antara tanda‑tanda kekuasaan‑Nya ialah Dia menciptakan pasangan hidup…”
-  </p>
-  <p class="small">(QS. Ar‑Rum: 21)</p>
-</section>
+    <section class="story show-on-scroll">
+        <div class="premium-card float-anim">
+            <h2 class="script-font">Our Love Story</h2>
+            <p class="quote">“Berawal dari Bilik Telepon...”</p>
+            <p>Siapa sangka, takdir kami bermula di antara sekat kayu sebuah <strong>Wartel</strong>. Di antara suara koin yang berdenting dan lilitan kabel telepon, semesta mempertemukan kami.</p>
+            <p>Berawal dari sekadar mengantri giliran menelpon, kini Allah menyatukan kami untuk menelpon masa depan yang sama dalam ikatan suci pernikahan.</p>
+        </div>
+    </section>
 
-<!-- GALLERY -->
-<section class="content fade">
-  <h2 class="script-font section-title">Gallery</h2>
-  <div class="gallery">
-    <img src="gallery/1.jpg">
-    <img src="gallery/2.jpg">
-    <img src="gallery/3.jpg">
-  </div>
-</section>
+    <section class="event show-on-scroll">
+        <div class="premium-card highlight">
+            <h2 class="script-font">Waktu & Tempat</h2>
+            <div class="event-grid">
+                <div class="event-item">
+                    <h3 class="gold">Akad Nikah</h3>
+                    <p>Sabtu, 10 Mei 2026<br>08.00 - 10.00 WIB</p>
+                </div>
+                <div class="event-item">
+                    <h3 class="gold">Resepsi</h3>
+                    <p>Sabtu, 10 Mei 2026<br>11.00 WIB - Selesai</p>
+                </div>
+            </div>
+            <p class="address"><strong>Gedung Grand Ballroom</strong><br>Jl. Sudirman No. 45, Jakarta Pusat</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-link">📍 Lihat Lokasi</a>
+        </div>
+    </section>
 
-<!-- EVENT -->
-<section class="content fade">
-  <h2 class="script-font section-title">Waktu & Tempat</h2>
-  <p class="text"><b>Akad Nikah</b><br>08.00 – 10.00 WIB</p>
-  <p class="text"><b>Resepsi</b><br>11.00 WIB – Selesai</p>
-  <p class="text"><b>Gedung Grand Ballroom</b><br>Jakarta</p>
-</section>
+    <section class="gallery show-on-scroll">
+        <h2 class="script-font">Galeri Foto</h2>
+        <div class="slider">
+            <img src="foto1.jpg" alt="Foto 1">
+            <img src="foto2.jpg" alt="Foto 2">
+            <img src="foto1.jpg" alt="Foto 3">
+        </div>
+    </section>
 
-<!-- RSVP -->
-<section class="content fade">
-  <h2 class="script-font section-title">RSVP</h2>
-  <form id="rsvpForm">
-    <input type="text" id="rsvpName" placeholder="Nama Anda" required>
-    <select id="rsvpStatus">
-      <option value="Hadir">Hadir</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
-    <button type="submit" class="open-btn">Kirim RSVP</button>
-  </form>
-</section>
+    <section class="rsvp show-on-scroll">
+        <div class="premium-card">
+            <h2 class="script-font">Doa Restu</h2>
+            <p>Silakan kirimkan ucapan dan doa terbaik Anda</p>
+            <form id="wishForm" class="wish-form">
+                <input type="text" id="wishName" placeholder="Nama Anda" required>
+                <textarea id="wishMessage" placeholder="Tulis doa untuk mempelai..." required></textarea>
+                <button type="submit" class="btn-link">Kirim Doa</button>
+            </form>
+            <div id="wishContainer" class="wish-container"></div>
+        </div>
+    </section>
 
-<footer>
-  <p class="small">© 2026 Digital Invitation</p>
-</footer>
+    <section class="gift show-on-scroll">
+        <div class="premium-card glass">
+            <h2 class="script-font">Wedding Gift</h2>
+            <p>Terima kasih atas doa dan kasih sayang Anda</p>
+            <div class="bank-box">
+                <p><strong>BANK BCA</strong><br>1234567890<br>A.N Gilang Satria</p>
+                <button onclick="copyText('1234567890')" class="btn-small">Salin Rekening</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="prophet-dua">"Barakallahu laka wa baraka ‘alaika wa jama’a bainakuma fii khair."</p>
+        <p class="translation-small">(Semoga Allah memberikan berkah kepadamu dan memberikan berkah atasmu dan menyatukan kalian berdua dalam kebaikan)</p>
+        <div class="divider" style="background: rgba(0,0,0,0.1); margin: 30px auto; height: 1px; width: 50%;"></div>
+        <h2 class="script-font" style="font-size: 30px; color: var(--gold);">G & I</h2>
+        <p>© 2026 Digital Invitation by Gilang</p>
+    </footer>
 
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-``
