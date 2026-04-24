@@ -27,7 +27,7 @@
     <div class="vignette"></div>
     <div class="envelope-text">
         <p class="uppercase spacing-3">Walimatul 'Ursy</p>
-        <h1 class="script-font">Gilang & Intan</h1>
+        <h1 class="script-font glow-text">Gilang & Intan</h1>
         <div class="divider"></div>
         <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
         <h2 id="namaTamu" class="guest-name">Tamu Undangan</h2>
@@ -38,19 +38,24 @@
 <div id="main" class="hidden-content">
     <section class="hero">
         <div class="hero-bg"></div>
-        <div class="vignette"></div>
         <div class="hero-text">
             <p class="uppercase spacing-3">Maha Suci Allah</p>
             <h1 class="script-font big-title">Gilang & Intan</h1>
-            <div class="hero-line"></div>
             <p class="spacing-2">10 . 05 . 2026</p>
+            
+            <div id="countdown" class="countdown-container">
+                <div class="time-box"><span id="days">00</span><p>Hari</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
+                <div class="time-box"><span id="mins">00</span><p>Menit</p></div>
+                <div class="time-box"><span id="secs">00</span><p>Detik</p></div>
+            </div>
         </div>
     </section>
 
     <section class="quran show-on-scroll">
         <div class="premium-card glass">
-            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
-            <p class="translation">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."</p>
+            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً</p>
+            <p class="translation">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."</p>
             <p class="bold">(QS. Ar-Rum: 21)</p>
         </div>
     </section>
@@ -58,8 +63,8 @@
     <section class="story show-on-scroll">
         <div class="premium-card float-anim">
             <h2 class="script-font gold">Our Love Story</h2>
-            <p class="quote">“Berawal dari Bilik Telepon...”</p>
-            <p>Siapa sangka, takdir kami bermula di antara sekat kayu sebuah <strong>Wartel</strong>. Di antara suara koin yang berdenting dan lilitan kabel telepon, semesta mempertemukan kami.</p>
+            <p class="quote">“Nostalgia Wartel...”</p>
+            <p>Takdir bermula di deretan bilik kayu sebuah <strong>Wartel</strong>. Di antara suara gaduh koin dan kabel telepon yang melilit, Allah mempertemukan kami untuk pertama kalinya.</p>
         </div>
     </section>
 
@@ -81,29 +86,19 @@
         </div>
     </section>
 
-    <section class="gallery show-on-scroll">
-        <h2 class="script-font gold">Galeri Foto</h2>
-        <div class="slider">
-            <img src="foto1.jpg">
-            <img src="foto2.jpg">
-            <img src="foto1.jpg">
-        </div>
-    </section>
-
-    <section class="rsvp show-on-scroll">
-        <div class="premium-card">
-            <h2 class="script-font gold">Doa Restu</h2>
-            <form id="wishForm" class="wish-form">
-                <input type="text" id="wishName" placeholder="Nama Anda" required>
-                <textarea id="wishMessage" placeholder="Tulis doa untuk mempelai..." required></textarea>
-                <button type="submit" class="btn-link">Kirim Doa</button>
-            </form>
-            <div id="wishContainer" class="wish-container"></div>
+    <section class="gift show-on-scroll">
+        <div class="premium-card glass">
+            <h2 class="script-font gold">Wedding Gift</h2>
+            <p>Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda kasih:</p>
+            <div class="bank-box">
+                <p><strong>BANK BCA</strong><br>1234567890<br>A.N Gilang Satria</p>
+                <button onclick="copyText('1234567890')" class="btn-small">Salin Rekening</button>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p class="prophet-dua">"Barakallahu laka wa baraka ‘alaika wa jama’a bainakuma fii khair."</p>
+        <p class="prophet-dua">"Barakallahu laka wa baraka ‘alaika..."</p>
         <h2 class="script-font gold">G & I</h2>
         <p>© 2026 Digital Invitation by Gilang</p>
     </footer>
