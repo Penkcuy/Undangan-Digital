@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wedding of Gilang & Intan</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,22 +16,21 @@
 
 <!-- LOADER -->
 <div id="loader">
-  <h2 class="script-font">G & I</h2>
+  <h1 class="script-font">G & I</h1>
 </div>
 
 <!-- BACKGROUND -->
 <div class="bg"></div>
-<div class="overlay"></div>
 
 <!-- MUSIC -->
 <audio id="musik" loop>
-  <source src="music.mp3" type="audio/mp3">
+  <source src="music.mp3">
 </audio>
-<button class="music-btn hidden" onclick="toggleMusic()">🔇</button>
+<button class="music-btn hidden" onclick="toggleMusic()">♪</button>
 
 <!-- ENVELOPE -->
 <div class="envelope" id="envelope">
-  <div class="envelope-card">
+  <div class="envelope-inner">
     <p class="label">Walimatul ‘Ursy</p>
     <h1 class="script-font title">Gilang & Intan</h1>
     <div class="divider"></div>
@@ -44,31 +46,32 @@
 <section class="hero">
   <p class="label">Maha Suci Allah</p>
   <h1 class="script-font title big">Gilang & Intan</h1>
-  <p class="date">10 • 05 • 2026</p>
+  <p class="date">10 · 05 · 2026</p>
 </section>
 
-<section class="card show-on-scroll">
+<section class="content show">
   <p class="arabic">
     وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
   </p>
   <p class="text">
-    “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan hidup…”
+    “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan untukmu pasangan hidup…”
   </p>
   <p class="small">(QS. Ar‑Rum: 21)</p>
 </section>
 
-<section class="card show-on-scroll">
+<section class="content show">
   <h2 class="script-font section-title">Our Love Story</h2>
   <p class="text">
-    Berawal dari sebuah pertemuan sederhana, Allah menuntun langkah kami
-    hingga bersatu dalam ikatan suci pernikahan.
+    Allah mempertemukan kami melalui cara yang sederhana,
+    lalu dengan kasih dan rahmat‑Nya menyatukan kami
+    dalam ikatan suci pernikahan.
   </p>
 </section>
 
-<section class="card show-on-scroll">
+<section class="content show">
   <h2 class="script-font section-title">Waktu & Tempat</h2>
   <p class="text"><b>Akad Nikah</b><br>08.00 – 10.00 WIB</p>
-  <p class="text"><b>Resepsi</b><br>11.00 – Selesai</p>
+  <p class="text"><b>Resepsi</b><br>11.00 WIB – Selesai</p>
   <p class="text"><b>Gedung Grand Ballroom</b><br>Jakarta</p>
 </section>
 
@@ -81,4 +84,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-``
