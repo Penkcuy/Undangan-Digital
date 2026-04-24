@@ -1,24 +1,27 @@
-// 1. Inisialisasi Nama Tamu
 const urlParams = new URLSearchParams(window.location.search);
-const tamu = urlParams.get('to') || "Tamu Undangan";
-document.getElementById("namaTamu").innerText = tamu;
+document.getElementById("namaTamu").innerText = urlParams.get('to') || "Tamu Undangan";
 
-// 2. Kontrol Loader
 window.onload = () => {
-    const loader = document.getElementById("loader");
-    loader.style.opacity = "0";
-    setTimeout(() => { loader.style.display = "none"; }, 800);
+    document.getElementById("loader").style.opacity = "0";
+    setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 800);
 };
 
-// 3. Logika Buka Undangan
 const musik = document.getElementById("musik");
+const video = document.getElementById("bgVideo");
+
 function openEnvelope() {
+    // 1. Jalankan Animasi Amplop
     document.getElementById("envelope").classList.add("open");
-    document.getElementById("main").classList.remove("hidden-content");
-    document.body.classList.remove("no-scroll");
-    document.querySelector(".music-btn").classList.remove("hidden");
     
-    // Volume fade in
+    // 2. Tampilkan Konten
+    setTimeout(() => {
+        document.getElementById("main").classList.remove("hidden-content");
+        document.body.classList.remove("no-scroll");
+        document.querySelector(".music-btn").classList.remove("hidden");
+    }, 500);
+
+    // 3. Play Video & Musik
+    video.play();
     musik.volume = 0;
     musik.play();
     let vol = 0;
@@ -28,71 +31,32 @@ function openEnvelope() {
     }, 200);
 }
 
-// 4. Efek Scroll & Parallax
 window.addEventListener("scroll", () => {
-    let scrolled = window.pageYOffset;
-    const heroBg = document.querySelector(".hero-bg");
-    if(heroBg && scrolled < window.innerHeight) {
-        heroBg.style.transform = `scale(${1.1 - scrolled/8000}) translateY(${scrolled * 0.2}px)`;
-    }
-
     document.querySelectorAll(".show-on-scroll").forEach(sec => {
         const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 150) { sec.classList.add("show"); }
+        if (top < window.innerHeight - 100) { sec.classList.add("show"); }
     });
 });
 
-// 5. Partikel Bunga Jatuh
-function createFlower() {
-    const container = document.querySelector(".flowers");
-    if(!container) return;
-    const flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.width = (Math.random() * 8 + 10) + "px";
-    flower.style.height = flower.style.width;
-    flower.style.animationDuration = (Math.random() * 3 + 5) + "s";
-    container.appendChild(flower);
-    setTimeout(() => flower.remove(), 8000);
-}
-setInterval(createFlower, 500);
-
-// 6. Buku Tamu (Guest Book)
+// Guest Book (Sama seperti sebelumnya)
 const wishForm = document.getElementById('wishForm');
 const wishContainer = document.getElementById('wishContainer');
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedWishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
-    savedWishes.forEach(w => renderWish(w.name, w.message));
-});
 
 wishForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('wishName').value;
     const msg = document.getElementById('wishMessage').value;
     if(name && msg) {
-        renderWish(name, msg);
-        const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
-        wishes.push({name, message: msg});
-        localStorage.setItem('weddingWishes', JSON.stringify(wishes));
+        const div = document.createElement('div');
+        div.className = 'wish-item';
+        div.innerHTML = `<strong style="color:#d4a373">${name}</strong><p style="font-size:13px">${msg}</p>`;
+        wishContainer.prepend(div);
         wishForm.reset();
     }
 });
 
-function renderWish(n, m) {
-    const div = document.createElement('div');
-    div.className = 'wish-item';
-    div.innerHTML = `<strong>${n}</strong><p>${m}</p>`;
-    wishContainer.prepend(div);
-}
-
-// 7. Utilitas
 function toggleMusic() {
     const btn = document.querySelector(".music-btn");
     if (musik.paused) { musik.play(); btn.innerText = "🔊"; } 
     else { musik.pause(); btn.innerText = "🔇"; }
-}
-
-function copyText(t) {
-    navigator.clipboard.writeText(t).then(() => alert("Nomor rekening berhasil disalin!"));
 }
