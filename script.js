@@ -1,4 +1,4 @@
-const params = new URLSearchParams(location.search);
+const params = new URLSearchParams(window.location.search);
 document.getElementById("namaTamu").innerText =
   params.get("to") || "Tamu Undangan";
 
@@ -18,25 +18,19 @@ function openEnvelope() {
 
     musik.volume = 0;
     musik.play();
-
     let v = 0;
     const fade = setInterval(() => {
       if (v < 0.4) {
         v += 0.05;
         musik.volume = v;
-      } else clearInterval(fade);
+      } else {
+        clearInterval(fade);
+      }
     }, 200);
-  }, 600);
+  }, 500);
 }
 
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".show-on-scroll").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
-});
-
 function toggleMusic() {
-  musik.paused ? musik.play() : musik.pause();
+  if (musik.paused) musik.play();
+  else musik.pause();
 }
