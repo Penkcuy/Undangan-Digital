@@ -1,68 +1,98 @@
-/* GUEST NAME */
-const params = new URLSearchParams(location.search);
-document.getElementById("namaTamu").innerText =
-  params.get("to") || "Tamu Undangan";
+// 1. Inisialisasi Nama Tamu
+const urlParams = new URLSearchParams(window.location.search);
+const tamu = urlParams.get('to') || "Tamu Undangan";
+document.getElementById("namaTamu").innerText = tamu;
 
-/* LOADER */
+// 2. Kontrol Loader
 window.onload = () => {
-  document.getElementById("loader").style.display = "none";
+    const loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    setTimeout(() => { loader.style.display = "none"; }, 800);
 };
 
-/* MUSIC */
+// 3. Logika Buka Undangan
 const musik = document.getElementById("musik");
-
-function toggleMusic() {
-  musik.paused ? musik.play() : musik.pause();
-}
-
-/* OPEN ENVELOPE */
 function openEnvelope() {
-  document.getElementById("envelope").classList.add("open");
-  setTimeout(() => {
-    document.getElementById("main").classList.remove("hidden");
+    document.getElementById("envelope").classList.add("open");
+    document.getElementById("main").classList.remove("hidden-content");
     document.body.classList.remove("no-scroll");
     document.querySelector(".music-btn").classList.remove("hidden");
-
+    
+    // Volume fade in
     musik.volume = 0;
     musik.play();
-    let v = 0;
+    let vol = 0;
     const fade = setInterval(() => {
-      if (v < 0.4) { v += 0.05; musik.volume = v; }
-      else clearInterval(fade);
+        if (vol < 0.4) { vol += 0.05; musik.volume = vol; } 
+        else { clearInterval(fade); }
     }, 200);
-  }, 500);
 }
 
-/* SCROLL STAGGER */
+// 4. Efek Scroll & Parallax
 window.addEventListener("scroll", () => {
-  document.querySelectorAll(".fade").forEach((el, i) => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 120) {
-      setTimeout(() => el.classList.add("show"), i * 200);
+    let scrolled = window.pageYOffset;
+    const heroBg = document.querySelector(".hero-bg");
+    if(heroBg && scrolled < window.innerHeight) {
+        heroBg.style.transform = `scale(${1.1 - scrolled/8000}) translateY(${scrolled * 0.2}px)`;
     }
-  });
+
+    document.querySelectorAll(".show-on-scroll").forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 150) { sec.classList.add("show"); }
+    });
 });
 
-/* RSVP TO WHATSAPP */
-document.getElementById("rsvpForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const name = document.getElementById("rsvpName").value;
-  const status = document.getElementById("rsvpStatus").value;
-  const text = `RSVP Undangan%0A%0ANama: ${name}%0AKehadiran: ${status}`;
-  window.open(`https://wa.me/628XXXXXXXXX?text=${text}`, "_blank");
-});
-
-/* FLOWER PARTICLE */
-const canvas = document.getElementById("flowerCanvas");
-const ctx = canvas.getContext("2d");
-let w, h, flowers;
-
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
+// 5. Partikel Bunga Jatuh
+function createFlower() {
+    const container = document.querySelector(".flowers");
+    if(!container) return;
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.width = (Math.random() * 8 + 10) + "px";
+    flower.style.height = flower.style.width;
+    flower.style.animationDuration = (Math.random() * 3 + 5) + "s";
+    container.appendChild(flower);
+    setTimeout(() => flower.remove(), 8000);
 }
-window.addEventListener("resize", resize);
-resize();
+setInterval(createFlower, 500);
 
-function initFlowers() {
-  flowers = Array.from({ length: 30 }, () => ({
-    x: Math.random() * w,
+// 6. Buku Tamu (Guest Book)
+const wishForm = document.getElementById('wishForm');
+const wishContainer = document.getElementById('wishContainer');
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedWishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+    savedWishes.forEach(w => renderWish(w.name, w.message));
+});
+
+wishForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('wishName').value;
+    const msg = document.getElementById('wishMessage').value;
+    if(name && msg) {
+        renderWish(name, msg);
+        const wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+        wishes.push({name, message: msg});
+        localStorage.setItem('weddingWishes', JSON.stringify(wishes));
+        wishForm.reset();
+    }
+});
+
+function renderWish(n, m) {
+    const div = document.createElement('div');
+    div.className = 'wish-item';
+    div.innerHTML = `<strong>${n}</strong><p>${m}</p>`;
+    wishContainer.prepend(div);
+}
+
+// 7. Utilitas
+function toggleMusic() {
+    const btn = document.querySelector(".music-btn");
+    if (musik.paused) { musik.play(); btn.innerText = "🔊"; } 
+    else { musik.pause(); btn.innerText = "🔇"; }
+}
+
+function copyText(t) {
+    navigator.clipboard.writeText(t).then(() => alert("Nomor rekening berhasil disalin!"));
+}
