@@ -1,160 +1,86 @@
-:root {
-  --bg-main: #f4f5f2;
-  --text-dark: #3a3a3a;
-  --gold-soft: #c2ab7c;
-  --gold-light: #e4dcca;
-  --line: #d8d6cf;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wedding of Gilang & Intan</title>
 
-* {
-  box-sizing: border-box;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  color: var(--text-dark);
-  background: var(--bg-main);
-}
+<link rel="stylesheet" href="style.css">
+</head>
 
-.no-scroll {
-  overflow: hidden;
-}
+<body class="no-scroll">
 
-.script-font {
-  font-family: 'Great Vibes', cursive;
-}
+<!-- LOADER -->
+<div id="loader">
+  <h1 class="script-font">G & I</h1>
+</div>
 
-/* BACKGROUND */
-.bg {
-  position: fixed;
-  inset: 0;
-  background: url("bg.jpg") center/cover no-repeat;
-  z-index: -1;
-}
+<!-- BACKGROUND -->
+<div class="bg"></div>
 
-/* LOADER */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-main);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  color: var(--gold-soft);
-}
+<!-- MUSIC -->
+<audio id="musik" loop>
+  <source src="music.mp3">
+</audio>
+<button class="music-btn hidden" onclick="toggleMusic()">♪</button>
 
-/* ENVELOPE */
-.envelope {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(244,245,242,0.98);
-  transition: 1.2s ease;
-  z-index: 500;
-}
+<!-- ENVELOPE -->
+<div class="envelope" id="envelope">
+  <div class="envelope-inner">
+    <p class="label">Walimatul ‘Ursy</p>
+    <h1 class="script-font title">Gilang & Intan</h1>
+    <div class="divider"></div>
+    <p class="text">Kepada Yth.</p>
+    <h2 id="namaTamu" class="guest">Tamu Undangan</h2>
+    <button class="open-btn" onclick="openEnvelope()">Buka Undangan</button>
+  </div>
+</div>
 
-.envelope.open {
-  transform: scale(2);
-  opacity: 0;
-  filter: blur(6px);
-  pointer-events: none;
-}
+<!-- MAIN -->
+<div id="main" class="hidden">
 
-.envelope-inner {
-  text-align: center;
-  padding: 30px;
-  animation: float 4s ease-in-out infinite;
-}
+<section class="hero">
+  <p class="label">Maha Suci Allah</p>
+  <h1 class="script-font title big">Gilang & Intan</h1>
+  <p class="date">10 · 05 · 2026</p>
+</section>
 
-@keyframes float {
-  50% { transform: translateY(-6px); }
-}
+<section class="content show">
+  <p class="arabic">
+    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنْفُسِكُمْ أَزْوَاجًا
+  </p>
+  <p class="text">
+    “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan untukmu pasangan hidup…”
+  </p>
+  <p class="small">(QS. Ar‑Rum: 21)</p>
+</section>
 
-.title {
-  color: var(--gold-soft);
-}
+<section class="content show">
+  <h2 class="script-font section-title">Our Love Story</h2>
+  <p class="text">
+    Allah mempertemukan kami melalui cara yang sederhana,
+    lalu dengan kasih dan rahmat‑Nya menyatukan kami
+    dalam ikatan suci pernikahan.
+  </p>
+</section>
 
-.big {
-  font-size: 46px;
-}
+<section class="content show">
+  <h2 class="script-font section-title">Waktu & Tempat</h2>
+  <p class="text"><b>Akad Nikah</b><br>08.00 – 10.00 WIB</p>
+  <p class="text"><b>Resepsi</b><br>11.00 WIB – Selesai</p>
+  <p class="text"><b>Gedung Grand Ballroom</b><br>Jakarta</p>
+</section>
 
-.label {
-  font-size: 11px;
-  letter-spacing: 3px;
-}
+<footer>
+  <p class="small">© 2026 Digital Invitation</p>
+</footer>
 
-.divider {
-  width: 60px;
-  height: 1px;
-  background: var(--line);
-  margin: 20px auto;
-}
+</div>
 
-.text {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.guest {
-  font-weight: 400;
-  margin-bottom: 22px;
-}
-
-.open-btn {
-  padding: 12px 34px;
-  border-radius: 50px;
-  border: none;
-  background: none;
-  border: 1px solid var(--gold-soft);
-  color: var(--gold-soft);
-  cursor: pointer;
-}
-
-/* CONTENT */
-.hidden {
-  display: none;
-}
-
-section {
-  min-height: 100vh;
-  padding: 110px 20px;
-  text-align: center;
-}
-
-.content {
-  max-width: 420px;
-  margin: auto;
-}
-
-.section-title {
-  color: var(--gold-soft);
-  font-size: 32px;
-}
-
-/* MUSIC */
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--gold-soft);
-  background: white;
-  color: var(--gold-soft);
-}
-
-.hidden {
-  display: none;
-}
-
-footer {
-  padding: 40px;
-  font-size: 12px;
-  opacity: 0.6;
-}
-``
+<script src="script.js"></script>
+</body>
+</html>
